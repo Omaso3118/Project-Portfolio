@@ -10,72 +10,11 @@
     rel="stylesheet"
   >
 
-  <!-- Chart.js for interactive charts -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
   <style>
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background-color: #ffffff;
-      color: #222222;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      padding: 80px 20px 50px 20px;
-      background: linear-gradient(135deg, #fff7f7, #f5f9ff);
-      transition: background 0.3s ease;
-    }
-
-    .hero-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .hero-title {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #777;
-      margin-bottom: 18px;
-    }
-
-    .hero-text {
-      font-size: 0.98rem;
-      color: #444;
-      margin-bottom: 24px;
-      max-width: 480px;
-    }
-
-    .hero-buttons .btn {
-      border-radius: 999px;
-      padding: 10px 22px;
-      font-size: 0.95rem;
-    }
-
-    .hero-buttons .btn + .btn {
-      margin-left: 10px;
-    }
-
-    .hero-image-wrapper {
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero-image {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-      border: 5px solid #fff;
+      background-color: #fff;
+      color: #222;
     }
 
     /* ABOUT SECTION */
@@ -115,18 +54,15 @@
       margin-right: auto;
     }
 
-    /* PROJECTS SECTION */
+    /* PROJECT CARDS */
     .project-card {
       border-radius: 15px;
       overflow: hidden;
-      background-color: #ffffff;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
     }
 
     .project-card-top {
       height: 120px;
       background-color: #ff6f6f;
-      transition: background-color 0.3s ease;
     }
 
     .project-avatar-wrapper {
@@ -143,25 +79,17 @@
 
     .project-card-footer {
       background: #f5f5f5;
-      transition: background-color 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
     }
 
     /* SKILLS SECTION */
     .skills-section {
       background-color: #f9f9f9;
-      transition: background-color 0.3s ease;
     }
 
     .skill-card {
       background: #ffffff;
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.06);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .skill-icon {
@@ -170,125 +98,101 @@
       object-fit: contain;
     }
 
-    /* Chart container inside Skills */
-    .skills-chart-card {
-      background: #ffffff;
-      border-radius: 14px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.06);
-      padding: 20px;
-      margin-top: 30px;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    /* BLOG SECTION */
+    .blog-card {
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
     }
-
-    /* DARK MODE STYLES */
-    body.dark-mode {
-      background-color: #121212;
-      color: #f5f5f5;
-    }
-
-    body.dark-mode .hero {
-      background: linear-gradient(135deg, #181818, #1f2933);
-    }
-
-    body.dark-mode .hero-text {
-      color: #dddddd;
-    }
-
-    body.dark-mode #about p {
-      color: #e0e0e0;
-    }
-
-    body.dark-mode .project-card {
-      background-color: #1f1f1f;
-      box-shadow: 0 0 0 rgba(0,0,0,0.0);
-    }
-
-    body.dark-mode .project-card-top {
-      background-color: #e57373;
-    }
-
-    body.dark-mode .project-card-footer {
-      background-color: #262626;
-    }
-
-    body.dark-mode .skills-section {
-      background-color: #181818;
-    }
-
-    body.dark-mode .skill-card {
-      background-color: #1f1f1f;
-      box-shadow: 0 0 0 rgba(0,0,0,0);
-    }
-
-    body.dark-mode .skills-chart-card {
-      background-color: #1f1f1f;
-      box-shadow: 0 0 0 rgba(0,0,0,0);
-    }
-
-    body.dark-mode h1,
-    body.dark-mode h2,
-    body.dark-mode h4,
-    body.dark-mode h5 {
-      color: #ffffff;
-    }
-
-    body.dark-mode .hero-subtitle {
-      color: #bbbbbb;
-    }
-
-    body.dark-mode .text-muted {
-      color: #cccccc !important;
-    }
-
-    /* DARK MODE TOGGLE BUTTON */
-    .theme-toggle {
-      position: fixed;
-      top: 16px;
-      right: 16px;
-      z-index: 1050;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      padding: 6px 12px;
-      backdrop-filter: blur(8px);
-    }
-
   </style>
 </head>
 
 <body>
+<!-- UPGRADED HERO SECTION -->
+<section id="hero" style="
+    padding: 130px 20px 100px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #f6faff, #fff0f5);
+    position: relative;
+    overflow: hidden;
+">
 
-  <!-- DARK MODE TOGGLE BUTTON -->
-  <button id="themeToggle" class="btn btn-outline-secondary theme-toggle">
-    🌙 Dark
-  </button>
+  <!-- Fade-in container -->
+  <div style="animation: fadeIn 1.4s ease;">
+    
+    <h1 style="
+        font-size: 80px;
+        font-weight: 800;
+        margin-bottom: 10px;
+    ">
+      Issabella Ampofo
+    </h1>
 
-  <!-- HERO SECTION -->
-  <header class="hero" id="hero">
-    <div class="hero-inner">
-      <div class="row align-items-center g-4">
-        <div class="col-md-7">
-          <div class="hero-subtitle">Data Analytics · Internal Audit · Business Intelligence</div>
-          <h1 class="hero-title">Hi, I am Issabella Ampofo.</h1>
-          <p class="hero-text">
-            I use data analytics, business intelligence, and internal audit principles to help organizations
-            make better decisions, improve controls, and strengthen performance. This portfolio showcases
-            my dashboards, analytical thinking, and my path toward the CIA certification.
-          </p>
-          <div class="hero-buttons">
-            <a href="#projects" class="btn btn-primary">View Projects</a>
-            <a href="resume.pdf" class="btn btn-outline-secondary" target="_blank">
-              Download Resume
-            </a>
-          </div>
-        </div>
-        <div class="col-md-5">
-          <div class="hero-image-wrapper">
-            <img src="images/about/1.jpeg" alt="Profile" class="hero-image">
-          </div>
-        </div>
+    <p style="
+        font-size: 22px;
+        max-width: 750px;
+        margin: 0 auto;
+        margin-bottom: 35px;
+        color: #444;
+        line-height: 1.7;
+        animation: fadeIn 2s ease;
+    ">
+      Data Analyst transitioning into Internal Auditing. Passionate about analytics, 
+      business intelligence, data storytelling, and strengthening internal controls 
+      through insight-driven decision making.
+    </p>
+
+    <!-- Resume + Socials -->
+    <div style="margin-bottom: 40px; animation: fadeIn 2.4s ease;">
+      <a href="resume.pdf" class="btn btn-dark btn-lg" style="padding: 12px 32px; border-radius: 50px;">
+        Download Resume
+      </a>
+
+      <div style="margin-top: 25px;">
+        <!-- GitHub -->
+        <a href="https://github.com/Omaso3118" target="_blank" 
+          style="margin: 0 10px; font-size: 32px; color: #333;">
+          <i class="bi bi-github"></i>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com" target="_blank" 
+          style="margin: 0 10px; font-size: 32px; color: #0077b5;">
+          <i class="bi bi-linkedin"></i>
+        </a>
       </div>
     </div>
-  </header>
+
+    <!-- Down arrow -->
+    <a href="#about" style="text-decoration: none; color: #333; animation: fadeIn 3s ease;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor"
+           class="bi bi-chevron-down bounce-arrow" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 
+                 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+      </svg>
+    </a>
+
+  </div>
+
+  <!-- Keyframe Animations -->
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(8px); }
+      60% { transform: translateY(4px); }
+    }
+
+    .bounce-arrow {
+      animation: bounce 2s infinite;
+      margin-top: 20px;
+    }
+  </style>
+
+</section>
 
   <!-- ABOUT SECTION -->
   <section id="about">
@@ -312,7 +216,7 @@
   </section>
 
   <!-- PROJECTS SECTION -->
-  <section class="projects-section container py-5" id="projects">
+  <section class="projects-section container py-5">
 
     <h2 class="text-center fw-bold mb-5" style="font-size: 2.5rem;">Projects</h2>
 
@@ -322,20 +226,24 @@
       <div class="col-md-4">
         <div class="card shadow-sm project-card h-100">
           <div class="project-card-top"></div>
+
           <div class="text-center project-avatar-wrapper">
             <img src="images/projects/1.webp" class="project-avatar" alt="Savannah Wildlife Analytics">
           </div>
+
           <div class="card-body text-center">
             <h4 class="fw-bold">Savannah Wildlife Analytics</h4>
-            <p class="text-muted" style="margin-top: -5px;">@wildlife_dashboard</p>
+            <p class="text-muted">@wildlife_dashboard</p>
             <p style="font-size: 14px;">
               A wildlife activity monitoring dashboard that visualizes movement, sightings,
               and migration patterns across a fictional savannah ecosystem.
             </p>
           </div>
+
           <div class="p-3 text-center project-card-footer">
-            <a href="wildlife-dashboard.html" class="btn btn-primary w-100">View Project</a>
+            <a href="project1.html" class="btn btn-primary w-100">View Project</a>
           </div>
+
         </div>
       </div>
 
@@ -343,19 +251,22 @@
       <div class="col-md-4">
         <div class="card shadow-sm project-card h-100">
           <div class="project-card-top"></div>
+
           <div class="text-center project-avatar-wrapper">
             <img src="images/projects/2.webp" class="project-avatar" alt="Ocean Health Insights">
           </div>
+
           <div class="card-body text-center">
             <h4 class="fw-bold">Ocean Health Insights</h4>
-            <p class="text-muted" style="margin-top: -5px;">@ocean_monitor</p>
+            <p class="text-muted">@ocean_monitor</p>
             <p style="font-size: 14px;">
-              An interactive ocean analytics platform displaying coral reef status, biodiversity,
-              water quality, and long-term environmental trends.
+              An interactive ocean analytics platform analysing coral reef status,
+              biodiversity, water quality, and environmental trends.
             </p>
           </div>
+
           <div class="p-3 text-center project-card-footer">
-            <a href="ocean-dashboard.html" class="btn btn-primary w-100">View Project</a>
+            <a href="project2.html" class="btn btn-primary w-100">View Project</a>
           </div>
         </div>
       </div>
@@ -364,20 +275,23 @@
       <div class="col-md-4">
         <div class="card shadow-sm project-card h-100">
           <div class="project-card-top"></div>
+
           <div class="text-center project-avatar-wrapper">
             <img src="images/projects/3.webp" class="project-avatar" alt="Island Logistics Planner">
           </div>
+
           <div class="card-body text-center">
             <h4 class="fw-bold">Island Logistics Planner</h4>
-            <p class="text-muted" style="margin-top: -5px;">@island_routes</p>
+            <p class="text-muted">@island_routes</p>
             <p style="font-size: 14px;">
-              A visual logistics tool for optimizing boat routes, travel timing, and resource
-              delivery between island locations using smart navigation data.
+              A route-optimization tool for island-based supply chains using navigation and timing data.
             </p>
           </div>
+
           <div class="p-3 text-center project-card-footer">
-            <a href="island-logistics.html" class="btn btn-primary w-100">View Project</a>
+            <a href="project3.html" class="btn btn-primary w-100">View Project</a>
           </div>
+
         </div>
       </div>
 
@@ -385,69 +299,85 @@
   </section>
 
   <!-- SKILLS SECTION -->
-  <section class="skills-section py-5" id="skills">
+  <section class="skills-section py-5">
     <div class="container">
 
       <h2 class="text-center fw-bold mb-5" style="font-size: 2.5rem;">Skills</h2>
 
       <div class="row g-4 justify-content-center">
 
-        <!-- SKILL 1 -->
         <div class="col-6 col-md-3">
           <div class="skill-card text-center p-3 h-100">
-            <img src="images/skills/1.png" class="skill-icon mb-3" alt="Skill Icon 1">
-            <h5 class="fw-bold mb-2">Data Analysis</h5>
-            <p style="font-size: 14px;">
-              R, Python, statistics, and exploratory data analysis.
-            </p>
+            <img src="images/skills/1.png" class="skill-icon mb-3" alt="">
+            <h5 class="fw-bold">Data Analysis</h5>
+            <p>R, Python, statistics, and exploratory data analysis.</p>
           </div>
         </div>
 
-        <!-- SKILL 2 -->
         <div class="col-6 col-md-3">
           <div class="skill-card text-center p-3 h-100">
-            <img src="images/skills/2.png" class="skill-icon mb-3" alt="Skill Icon 2">
-            <h5 class="fw-bold mb-2">SQL & Databases</h5>
-            <p style="font-size: 14px;">
-              Query design, modeling, and database reporting.
-            </p>
+            <img src="images/skills/2.png" class="skill-icon mb-3" alt="">
+            <h5 class="fw-bold">SQL & Databases</h5>
+            <p>Query design, modeling, and database reporting.</p>
           </div>
         </div>
 
-        <!-- SKILL 3 -->
         <div class="col-6 col-md-3">
           <div class="skill-card text-center p-3 h-100">
-            <img src="images/skills/3.png" class="skill-icon mb-3" alt="Skill Icon 3">
-            <h5 class="fw-bold mb-2">Visualization & BI</h5>
-            <p style="font-size: 14px;">
-              Dashboards, Power BI, and data storytelling.
-            </p>
+            <img src="images/skills/3.png" class="skill-icon mb-3" alt="">
+            <h5 class="fw-bold">Visualization & BI</h5>
+            <p>Dashboards, Power BI, and data storytelling.</p>
           </div>
         </div>
 
-        <!-- SKILL 4 -->
         <div class="col-6 col-md-3">
           <div class="skill-card text-center p-3 h-100">
-            <img src="images/skills/4.jpeg" class="skill-icon mb-3" alt="Skill Icon 4">
-            <h5 class="fw-bold mb-2">Internal Audit</h5>
-            <p style="font-size: 14px;">
-              Risk analysis, controls, and CIA-oriented auditing.
-            </p>
+            <img src="images/skills/4.jpeg" class="skill-icon mb-3" alt="">
+            <h5 class="fw-bold">Internal Audit</h5>
+            <p>Risk analysis, controls, and CIA-oriented auditing.</p>
           </div>
         </div>
 
       </div>
+    </div>
+  </section>
 
-      <!-- INTERACTIVE SKILLS RADAR CHART -->
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-8">
-          <div class="skills-chart-card">
-            <h5 class="fw-bold mb-2 text-center">Skills Proficiency Overview</h5>
-            <p class="text-muted text-center" style="font-size:0.9rem;">
-              A simulated radar chart showing relative strengths across key tools and domains.
-            </p>
-            <canvas id="skillsRadarChart" height="260"></canvas>
-          </div>
+  <!-- BLOG SECTION -->
+  <section id="blog" class="container py-5">
+    <h2 class="text-center fw-bold mb-5" style="font-size: 2.5rem;">Blog</h2>
+
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-md-4">
+        <div class="card p-3 blog-card h-100">
+          <h4 class="fw-bold">Using Data Analytics to Strengthen Internal Controls</h4>
+          <p class="text-muted" style="font-size: 14px;">Internal Audit · Analytics</p>
+          <p style="font-size: 14px;">
+            How analytics can enhance assurance, uncover risks, and modernize internal control reviews.
+          </p>
+          <a href="blog-internal-controls.html" class="btn btn-outline-primary mt-auto">Read Article</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card p-3 blog-card h-100">
+          <h4 class="fw-bold">From Spreadsheets to Dashboards: My BI Journey</h4>
+          <p class="text-muted" style="font-size: 14px;">Business Intelligence</p>
+          <p style="font-size: 14px;">
+            A reflection on growing from Excel reports to full BI dashboards and data modeling.
+          </p>
+          <a href="blog-bi-journey.html" class="btn btn-outline-primary mt-auto">Read Article</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card p-3 blog-card h-100">
+          <h4 class="fw-bold">Bridging Data Analytics & Internal Auditing</h4>
+          <p class="text-muted" style="font-size: 14px;">Career Path</p>
+          <p style="font-size: 14px;">
+            Why the future auditor will combine technical analytics with governance and assurance.
+          </p>
+          <a href="blog-bridging-analytics-audit.html" class="btn btn-outline-primary mt-auto">Read Article</a>
         </div>
       </div>
 
@@ -456,85 +386,6 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Interactive Skills Radar Chart + Dark Mode Toggle -->
-  <script>
-    // Radar chart
-    const ctx = document.getElementById('skillsRadarChart').getContext('2d');
-
-    new Chart(ctx, {
-      type: 'radar',
-      data: {
-        labels: [
-          'Python / R',
-          'SQL',
-          'Power BI',
-          'Excel & Reporting',
-          'Internal Audit',
-          'Data Storytelling'
-        ],
-        datasets: [{
-          label: 'Proficiency (simulated)',
-          data: [85, 80, 78, 88, 75, 82],
-          backgroundColor: 'rgba(255, 111, 111, 0.2)',
-          borderColor: '#ff6f6f',
-          pointBackgroundColor: '#ff6f6f',
-          borderWidth: 2
-        }]
-      },
-      options: {
-        plugins: {
-          legend: {
-            display: false
-          }
-        },
-        scales: {
-          r: {
-            beginAtZero: true,
-            suggestedMax: 100,
-            ticks: {
-              stepSize: 20
-            },
-            angleLines: {
-              color: 'rgba(0,0,0,0.08)'
-            },
-            grid: {
-              color: 'rgba(0,0,0,0.06)'
-            },
-            pointLabels: {
-              font: {
-                size: 11
-              }
-            }
-          }
-        }
-      }
-    });
-
-    // DARK MODE TOGGLE LOGIC
-    const themeToggleBtn = document.getElementById('themeToggle');
-    const body = document.body;
-
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      body.classList.add('dark-mode');
-      themeToggleBtn.textContent = '☀️ Light';
-    }
-
-    themeToggleBtn.addEventListener('click', () => {
-      body.classList.toggle('dark-mode');
-      const isDark = body.classList.contains('dark-mode');
-
-      if (isDark) {
-        themeToggleBtn.textContent = '☀️ Light';
-        localStorage.setItem('theme', 'dark');
-      } else {
-        themeToggleBtn.textContent = '🌙 Dark';
-        localStorage.setItem('theme', 'light');
-      }
-    });
-  </script>
 
 </body>
 </html>
